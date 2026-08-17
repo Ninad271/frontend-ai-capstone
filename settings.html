@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Manage your profile and notification preferences."
+    />
+    <title>Settings — Frontend AI Capstone</title>
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/settings.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a href="index.html" class="site-logo">Capstone App</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html" class="site-nav__link">Home</a>
+          <a href="settings.html" class="site-nav__link" aria-current="page">Settings</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <div class="page-header">
+        <h1 class="page-header__title">Settings</h1>
+        <p class="page-header__description">
+          Update your profile information and choose how you'd like to be notified.
+        </p>
+      </div>
+
+      <div class="settings-container">
+        <div
+          id="form-feedback"
+          class="alert alert--success"
+          role="status"
+          aria-live="polite"
+          hidden
+        >
+          Your settings have been saved successfully.
+        </div>
+
+        <form id="settings-form" class="settings-form" novalidate>
+          <div class="card">
+            <div class="card__section">
+              <h2 class="card__heading">Profile</h2>
+              <p class="card__subheading">
+                Your personal information used across the application.
+              </p>
+
+              <div class="form-group">
+                <label class="form-label" for="name">Full name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Jane Doe"
+                  autocomplete="name"
+                  required
+                  minlength="2"
+                  maxlength="100"
+                  aria-describedby="name-hint"
+                />
+                <span id="name-hint" class="form-hint">
+                  This is how your name will appear in the app.
+                </span>
+                <span id="name-error" class="form-error" role="alert" hidden></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Email address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="jane@example.com"
+                  autocomplete="email"
+                  required
+                  aria-describedby="email-hint"
+                />
+                <span id="email-hint" class="form-hint">
+                  We'll use this to send you notifications.
+                </span>
+                <span id="email-error" class="form-error" role="alert" hidden></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__section">
+              <h2 class="card__heading">Notifications</h2>
+              <p class="card__subheading">
+                Choose which updates you'd like to receive.
+              </p>
+
+              <fieldset class="toggle-list">
+                <legend class="sr-only">Notification preferences</legend>
+
+                <div class="toggle-item">
+                  <div class="toggle-item__content">
+                    <label class="toggle-item__label" for="notify-email">
+                      Email notifications
+                    </label>
+                    <span class="toggle-item__description">
+                      Receive important account updates and activity alerts via email.
+                    </span>
+                  </div>
+                  <div class="toggle-switch">
+                    <input
+                      type="checkbox"
+                      id="notify-email"
+                      name="notifyEmail"
+                      class="toggle-switch__input"
+                      checked
+                    />
+                    <span class="toggle-switch__track" aria-hidden="true">
+                      <span class="toggle-switch__thumb"></span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="toggle-item">
+                  <div class="toggle-item__content">
+                    <label class="toggle-item__label" for="notify-push">
+                      Push notifications
+                    </label>
+                    <span class="toggle-item__description">
+                      Get real-time alerts on your device for time-sensitive updates.
+                    </span>
+                  </div>
+                  <div class="toggle-switch">
+                    <input
+                      type="checkbox"
+                      id="notify-push"
+                      name="notifyPush"
+                      class="toggle-switch__input"
+                    />
+                    <span class="toggle-switch__track" aria-hidden="true">
+                      <span class="toggle-switch__thumb"></span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="toggle-item">
+                  <div class="toggle-item__content">
+                    <label class="toggle-item__label" for="notify-marketing">
+                      Marketing emails
+                    </label>
+                    <span class="toggle-item__description">
+                      Receive product news, tips, and promotional offers.
+                    </span>
+                  </div>
+                  <div class="toggle-switch">
+                    <input
+                      type="checkbox"
+                      id="notify-marketing"
+                      name="notifyMarketing"
+                      class="toggle-switch__input"
+                    />
+                    <span class="toggle-switch__track" aria-hidden="true">
+                      <span class="toggle-switch__thumb"></span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="toggle-item">
+                  <div class="toggle-item__content">
+                    <label class="toggle-item__label" for="notify-weekly">
+                      Weekly digest
+                    </label>
+                    <span class="toggle-item__description">
+                      A summary of your activity and highlights, sent every Monday.
+                    </span>
+                  </div>
+                  <div class="toggle-switch">
+                    <input
+                      type="checkbox"
+                      id="notify-weekly"
+                      name="notifyWeekly"
+                      class="toggle-switch__input"
+                      checked
+                    />
+                    <span class="toggle-switch__track" aria-hidden="true">
+                      <span class="toggle-switch__thumb"></span>
+                    </span>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="btn btn--secondary">Reset</button>
+            <button type="submit" class="btn btn--primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/settings.js"></script>
+  </body>
+</html>
